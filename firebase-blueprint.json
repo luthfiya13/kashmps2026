@@ -1,0 +1,49 @@
+{
+  "entities": {
+    "Student": {
+      "title": "Student",
+      "description": "Data mahasiswa dan status pembayaran kas",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number", "description": "Kode unik mahasiswa" },
+        "name": { "type": "string", "description": "Nama lengkap" },
+        "nim": { "type": "string", "description": "Nomor Induk Mahasiswa" },
+        "payments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "month": { "type": "string" },
+              "isPaid": { "type": "boolean" }
+            }
+          }
+        }
+      },
+      "required": ["id", "name", "nim", "payments"]
+    },
+    "PaymentRequest": {
+      "title": "PaymentRequest",
+      "description": "Antrean permintaan konfirmasi pembayaran",
+      "type": "object",
+      "properties": {
+        "studentNim": { "type": "string" },
+        "studentName": { "type": "string" },
+        "months": { "type": "array", "items": { "type": "string" } },
+        "amount": { "type": "number" },
+        "status": { "type": "string", "enum": ["pending", "rejected"] },
+        "date": { "type": "string" }
+      },
+      "required": ["studentNim", "studentName", "months", "amount", "status", "date"]
+    }
+  },
+  "firestore": {
+    "students": {
+      "schema": "Student",
+      "description": "Koleksi data mahasiswa"
+    },
+    "requests": {
+      "schema": "PaymentRequest",
+      "description": "Koleksi antrean pembayaran"
+    }
+  }
+}
