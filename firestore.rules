@@ -7,7 +7,7 @@ service cloud.firestore {
     }
     
     function isAdmin() {
-      let adminEmails = ["zuhurasf1311@gmail.com", "admin2@gmail.com", "admin3@gmail.com"];
+      let adminEmails = ["zuhurasf1311@gmail.com", "kanialaksono1407@gmail.com", "admin3@gmail.com"];
       return isAuthenticated() && 
         (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin' ||
          request.auth.token.email in adminEmails);
