@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '../../lib/firebase';
 
-const ADMIN_EMAILS = ["zuhurasf1311@gmail.com", "admin2@gmail.com", "admin3@gmail.com"];
+const ADMIN_EMAILS = ["zuhurasf1311@gmail.com", "kanialaksono1407@gmail.com", "admin3@gmail.com"];
 
 export default function AdminLogin() {
   const navigate = useNavigate();
